@@ -1,6 +1,6 @@
 const UssdMenu = require('ussd-menu-builder');
 let menu = new UssdMenu();
-
+const router = express.Router();
 // Define menu states
 menu.startState({
     run: () => {
@@ -49,7 +49,7 @@ menu.state('buyAirtime.amount', {
 
 // Registering USSD handler with Express
 
-app.post('/ussd', function (req, res) {
+router.post('/ussd', function (req, res) {
     menu.run(req.body, ussdResult => {
         res.send(ussdResult);
     });
