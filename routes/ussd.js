@@ -1,3 +1,4 @@
+const express = require("express");
 const UssdMenu = require('ussd-menu-builder');
 let menu = new UssdMenu();
 const router = express.Router();
@@ -54,3 +55,5 @@ router.post('/ussd', function (req, res) {
         res.send(ussdResult);
     });
 });
+
+module.exports = router;
